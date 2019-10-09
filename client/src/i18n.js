@@ -43,7 +43,7 @@ i18n
     excludeCacheFor: ['cimode'],
 
     cookieMinutes: 10,
-    cookieDomain: 'myDomain',
+    cookieDomain: 'wordsDomain',
     htmlTag: document.documentElement
   });
 
