@@ -1,6 +1,8 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { I18nextProvider } from 'react-i18next';
+import i18n from '../../i18n';
 import MainPage from '../MainPage';
 import { store } from '../../store';
 import { toast } from 'react-toastify';
@@ -18,11 +20,13 @@ toast.configure({
 });
 
 const Home = () => (
-  <Provider store={store}>
-    <Router>
-      <MainPage />
-    </Router>
-  </Provider>
+  <I18nextProvider i18n={i18n}>
+    <Provider store={store}>
+      <Router>
+        <MainPage />
+      </Router>
+    </Provider>
+  </I18nextProvider>
 );
 
 export default Home;
