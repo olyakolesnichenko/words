@@ -2,5 +2,8 @@
   "Hello": "Hello",
   "Do you know this word?": "Do you know this word?",
   "YES": "YES",
-  "NO": "NO"
+  "NO": "NO",
+  "Show next": "Show next word >",
+  "Give the cue": "Give the cue"
+
 }

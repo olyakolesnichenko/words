@@ -1,5 +1,6 @@
 $blue-color: #2e53db;
 $text-color: #363a44;
+$text-lgray-color: #afaeae;
 $gray-color: #f7f7fb;
 
 :local(.main) {
@@ -38,11 +39,27 @@ $gray-color: #f7f7fb;
 }
 
 :local(.mainText) {
-  font-size: 125%;
+  font-size: 150%;
   text-align: center;
   color: $text-color;
 }
-
+:local(.translationText) {
+  font-size: 100%;
+  text-align: center;
+  color: $text-lgray-color;
+}
+:local(.buttonsWrap) {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  min-width: 300px;
+  margin: 0 auto;
+}
+:local(.buttons) {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+}
 :local(.button) {
   margin: 24px 0 !important;
   background-color: $blue-color !important;
