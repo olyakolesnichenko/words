@@ -1,7 +1,7 @@
 import {fetchWords} from '../../routines/routines';
 
 const initialState = {
-  currentWord: '',
+  currentWord: {},
   loading: true,
   error: null
 };
