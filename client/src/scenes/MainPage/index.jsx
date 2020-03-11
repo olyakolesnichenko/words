@@ -11,22 +11,11 @@ class MainPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      isShowTranslation: false,
-      shownLetters: 0
-    };
     this.getNewWord = this.getNewWord.bind(this);
-    this.getTheCue = this.getTheCue.bind(this);
-    this.showTranslation = this.showTranslation.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchWords();
-  }
-  getTheCue() {
-    this.setState({
-      shownLetters: this.state.shownLetters+1
-    });
   }
 
   getNewWord() {
@@ -37,17 +26,8 @@ class MainPage extends Component {
     });
   }
 
-  showTranslation() {
-    this.setState({
-      isShowTranslation: true,
-      shownLetters: 0
-    });
-  }
-
   render() {
     const { loading, word, t } = this.props;
-
-    console.log(loading, word );
 
     return loading ? (
       <Spinner />
