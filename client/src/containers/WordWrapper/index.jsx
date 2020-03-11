@@ -5,15 +5,15 @@ import styles from './styles.module.scss';
 const WordWrapper = ({word, getNewWord, t}) => {
 
   const [isShowTranslation, setShowTranslation] = useState(false);
-  const [shownLetters, countShownLetters] = useState(0);
+  const [countShownLetters, setShownLetters] = useState(0);
 
   const getTheHint = () => {
-    countShownLetters(shownLetters + 1);
+    setShownLetters(countShownLetters + 1);
   };
 
   const showTranslation = () => {
     setShowTranslation(true);
-    countShownLetters(0);
+    setShownLetters(0);
   };
   const wordPercentage = +process.env.REACT_APP_WORD_PERCENTAGE;
   const numberOfLetters = +process.env.REACT_APP_NUMBER_OF_LETTERS;
@@ -28,14 +28,14 @@ const WordWrapper = ({word, getNewWord, t}) => {
               <h1 className={styles.headerCentered}>{t('Do you know this word?')} </h1>
               <p className={styles.mainText}>{word['word']}</p>
               {isShowTranslation ? <p className={styles.translationText}>{word['translation']}</p> : null}
-              {shownLetters ?
-                <p className={styles.translationText}>{word['translation'].substring(0, shownLetters)}</p> : null}
+              {countShownLetters ?
+                <p className={styles.translationText}>{word['translation'].substring(0, countShownLetters)}</p> : null}
               {isShowTranslation ?
                 <div className={styles.buttons}>
                   <Button primary onClick={() => getNewWord()}>{t('Show next')}</Button>
                 </div> :
                 <div className={styles.buttons}>
-                  {shownLetters >= Math.min(allowedLettersNumber, +numberOfLetters) ? null :
+                  {countShownLetters >= Math.min(allowedLettersNumber, +numberOfLetters) ? null :
                     <Button onClick={() => getTheHint()}>{t('Give the cue')}</Button>}
                   <div className={styles.buttonsWrap}>
                     <Button primary onClick={() => getNewWord()}>{t('YES')}</Button>
